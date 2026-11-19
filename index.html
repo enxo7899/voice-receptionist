@@ -1,0 +1,459 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Brightwater AI receptionist · live demo</title>
+<meta name="description" content="Live demo: an AI phone receptionist for a plumbing business that books jobs, sends gas leaks to safety and never makes up prices.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=Spline+Sans+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #f3eee5;
+    --paper-2: #ebe4d7;
+    --card: #fbf8f2;
+    --ink: #1c1915;
+    --muted: #6b6358;
+    --line: #d8cfbf;
+    --accent: #b4532a;
+    --accent-ink: #fff;
+    --ok: #2f6b45;
+    --warn: #9a3412;
+    --danger: #a3191f;
+    --mono: "Spline Sans Mono", ui-monospace, monospace;
+    --sans: "Bricolage Grotesque", Georgia, serif;
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body { margin: 0; background: var(--paper); color: var(--ink); font: 16px/1.5 var(--sans); }
+  a { color: var(--accent); }
+  .banner { background: var(--ink); color: #efe9df; font-size: 13.5px; padding: 8px 16px; text-align: center; }
+  .banner a { color: #f0b48f; }
+  .wrap { max-width: 1320px; margin: 0 auto; padding: 0 16px; }
+  header.hero { padding: 34px 0 18px; display: grid; grid-template-columns: 1.3fr 1fr; gap: 28px; align-items: end; border-bottom: 1px solid var(--line); }
+  .brand { font-family: var(--mono); font-size: 12.5px; letter-spacing: .08em; text-transform: uppercase; color: var(--accent); margin: 0 0 10px; }
+  h1 { font-size: clamp(30px, 4.4vw, 52px); line-height: 1.02; margin: 0; font-weight: 800; letter-spacing: -.02em; }
+  .lede { color: var(--muted); margin: 0; font-size: 17px; }
+  .lede b { color: var(--ink); font-weight: 600; }
+
+  main { display: grid; grid-template-columns: minmax(0, 470px) minmax(0, 1fr); gap: 28px; padding: 24px 0 40px; }
+  h2 { font-size: 13px; font-family: var(--mono); font-weight: 500; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin: 0 0 10px; }
+  h3 { margin: 0 0 8px; font-size: 20px; }
+
+  /* Phone */
+  .phone { background: var(--card); border: 1px solid var(--line); border-radius: 22px; overflow: hidden; display: flex; flex-direction: column; min-height: 640px; }
+  .callbar { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 14px 16px; border-bottom: 1px solid var(--line); background: var(--paper-2); }
+  .callbar .who { font-weight: 600; line-height: 1.2; }
+  .callbar .who small { display: block; font-weight: 400; color: var(--muted); font-family: var(--mono); font-size: 12px; }
+  .status { font-family: var(--mono); font-size: 12px; padding: 3px 8px; border-radius: 99px; border: 1px solid var(--line); white-space: nowrap; }
+  .status.live { color: var(--ok); border-color: #9cc2a9; }
+  .status.ended { color: var(--muted); }
+  .status.urgent { color: #fff; background: var(--danger); border-color: var(--danger); }
+  .transcript { flex: 1; overflow-y: auto; padding: 16px; display: flex; flex-direction: column; gap: 10px; max-height: 470px; }
+  .msg { max-width: 86%; padding: 9px 12px; border-radius: 14px; font-size: 15px; }
+  .msg.agent { background: var(--paper-2); border-top-left-radius: 4px; }
+  .msg.caller { align-self: flex-end; background: var(--ink); color: #f6f1e8; border-top-right-radius: 4px; }
+  .msg .tag { display: block; font-family: var(--mono); font-size: 11px; color: var(--muted); margin-bottom: 2px; }
+  .msg.caller .tag { color: #b9b0a2; }
+  .msg .blocked { display: block; margin-top: 6px; font-family: var(--mono); font-size: 11.5px; color: var(--warn); }
+  .msg.safety { background: #fbe3dc; border: 1px solid #e9b4a2; }
+  .composer { border-top: 1px solid var(--line); padding: 12px; display: grid; gap: 10px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; min-height: 30px; }
+  .chip { font: 13px var(--sans); background: transparent; border: 1px solid var(--line); color: var(--ink); padding: 4px 10px; border-radius: 99px; cursor: pointer; }
+  .chip:hover { border-color: var(--accent); color: var(--accent); }
+  .row { display: flex; gap: 8px; }
+  .row input { flex: 1; min-width: 0; font: 15px var(--sans); padding: 10px 12px; border: 1px solid var(--line); border-radius: 10px; background: #fff; color: var(--ink); }
+  button.primary, button.ghost { font: 600 14px var(--sans); border-radius: 10px; padding: 10px 14px; cursor: pointer; border: 1px solid var(--ink); }
+  button.primary { background: var(--accent); border-color: var(--accent); color: var(--accent-ink); }
+  button.ghost { background: transparent; color: var(--ink); }
+  button:disabled { opacity: .45; cursor: not-allowed; }
+  .mic[aria-pressed="true"] { background: var(--danger); border-color: var(--danger); color: #fff; }
+  .opts { display: flex; flex-wrap: wrap; gap: 14px; font-size: 13.5px; color: var(--muted); }
+  .opts label { display: inline-flex; gap: 6px; align-items: center; cursor: pointer; }
+
+  .scenarios { margin-top: 18px; }
+  .scenarios .list { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-top: 1px solid var(--line); }
+  .scenarios button { text-align: left; background: none; border: 0; border-bottom: 1px solid var(--line); padding: 10px 4px; font: 15px var(--sans); color: var(--ink); cursor: pointer; }
+  .scenarios button:hover { color: var(--accent); }
+  .scenarios button span { display: block; font-size: 12.5px; color: var(--muted); }
+  .break { margin-top: 18px; padding: 14px; border: 1px dashed var(--accent); border-radius: 14px; }
+  .break p { margin: 0 0 10px; font-size: 14px; color: var(--muted); }
+  .break .row { flex-wrap: wrap; }
+
+  /* Owner side */
+  .owner { display: grid; gap: 22px; align-content: start; min-width: 0; }
+  .panel { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 16px; min-width: 0; }
+  .panel-head { display: flex; justify-content: space-between; align-items: baseline; gap: 10px; flex-wrap: wrap; margin-bottom: 10px; }
+  .panel-head h3 { margin: 0; }
+  .hint { font-size: 13px; color: var(--muted); }
+  .diary { width: 100%; border-collapse: collapse; font-size: 13px; table-layout: fixed; }
+  .diary th { font-family: var(--mono); font-weight: 500; font-size: 11.5px; color: var(--muted); text-align: left; padding: 6px 6px; border-bottom: 1px solid var(--line); }
+  .diary td { padding: 4px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  .diary td.eng { font-weight: 600; width: 70px; padding-left: 6px; }
+  .slot { border-radius: 6px; padding: 4px 6px; min-height: 40px; font-size: 12px; line-height: 1.25; }
+  .slot.free { color: #a39a8c; border: 1px dashed var(--line); }
+  .slot.taken { background: var(--paper-2); color: var(--muted); }
+  .slot.new { background: var(--accent); color: #fff; }
+  .slot.new b { display: block; }
+  .slot.offered { outline: 2px solid var(--accent); color: var(--accent); }
+  .slot.past { background: repeating-linear-gradient(45deg, transparent 0 5px, var(--paper-2) 5px 6px); color: #b3aa9b; }
+  .diary-scroll, .xscroll { overflow-x: auto; }
+  .diary-scroll table { min-width: 560px; }
+
+  .actions { list-style: none; margin: 0; padding: 0; }
+  .actions li { display: grid; grid-template-columns: 116px 1fr; gap: 12px; padding: 9px 0; border-bottom: 1px solid var(--line); font-size: 14px; }
+  .actions li:last-child { border-bottom: 0; }
+  .atype { font-family: var(--mono); font-size: 11.5px; text-transform: uppercase; letter-spacing: .04em; padding-top: 2px; }
+  .atype.urgent { color: var(--danger); font-weight: 500; }
+  .atype.book { color: var(--ok); }
+  .atype.guard { color: var(--warn); }
+  .empty { color: var(--muted); font-size: 14px; padding: 8px 0; }
+  .summary { display: grid; grid-template-columns: 120px 1fr; gap: 4px 12px; font-size: 14px; margin: 0; }
+  .summary dt { color: var(--muted); }
+  .summary dd { margin: 0; font-family: var(--mono); font-size: 13px; overflow-wrap: anywhere; }
+  .two { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+
+  section.proof { border-top: 1px solid var(--line); padding: 28px 0 10px; }
+  .proof-grid { display: grid; grid-template-columns: 1fr 1.25fr; gap: 28px; }
+  table.data { width: 100%; border-collapse: collapse; font-size: 14px; font-variant-numeric: tabular-nums; }
+  table.data th, table.data td { text-align: left; padding: 8px 6px; border-bottom: 1px solid var(--line); }
+  table.data th { font-family: var(--mono); font-weight: 500; font-size: 11.5px; color: var(--muted); text-transform: uppercase; }
+  table.data td.num { font-family: var(--mono); }
+  table.data tr.headline td { font-weight: 600; background: #f6e6dc; }
+  .guards td:first-child { width: 40%; }
+  footer { border-top: 1px solid var(--line); padding: 20px 0 40px; color: var(--muted); font-size: 14px; }
+
+  @media (max-width: 1020px) {
+    main, header.hero, .proof-grid { grid-template-columns: minmax(0, 1fr); }
+    .phone { min-height: 0; }
+  }
+  @media (max-width: 640px) {
+    header.hero { padding: 22px 0 14px; gap: 10px; }
+    .lede { font-size: 15.5px; }
+    .two { grid-template-columns: minmax(0, 1fr); }
+    .scenarios .list { grid-template-columns: 1fr; }
+    .actions li { grid-template-columns: 1fr; gap: 2px; }
+    .summary { grid-template-columns: 96px 1fr; }
+    .transcript { max-height: 420px; }
+  }
+</style>
+</head>
+<body>
+<div class="banner">Live demo by EmSoft: Brightwater Plumbing &amp; Heating is a fictional Leeds plumber. <a href="https://github.com/enxo7899/voice-receptionist">Source on GitHub</a></div>
+<div class="wrap">
+  <header class="hero">
+    <div>
+      <p class="brand">Brightwater · AI phone receptionist</p>
+      <h1>Every call answered. Gas leaks sent to safety, not to the diary.</h1>
+    </div>
+    <p class="lede">Call it below by typing or with your microphone. It books jobs into a real diary, reads your number back, and texts a confirmation. <b>The safety rules are code, not a prompt</b>: try to make it book a gas leak, double-book a slot or invent a price.</p>
+  </header>
+
+  <main>
+    <div>
+      <h2>The call</h2>
+      <div class="phone" aria-label="Phone call">
+        <div class="callbar">
+          <div class="who">Brightwater reception<small id="callmeta">0113 496 0123 · Thu 19 Nov, 10:15</small></div>
+          <span class="status live" id="status">On call · 00:00</span>
+        </div>
+        <div class="transcript" id="transcript" aria-live="polite"></div>
+        <div class="composer">
+          <div class="chips" id="chips" aria-label="Suggested replies"></div>
+          <form class="row" id="form">
+            <input id="input" autocomplete="off" placeholder="Say something, e.g. my boiler needs a service" aria-label="What you say">
+            <button class="ghost mic" id="mic" type="button" aria-pressed="false" title="Speak (Chrome, Edge, Safari)">Mic</button>
+            <button class="primary" type="submit">Say</button>
+          </form>
+          <div class="opts">
+            <label><input type="checkbox" id="speak"> Read replies aloud</label>
+            <button class="ghost" id="hangup" type="button" style="padding:4px 10px;font-size:13px">New call</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="scenarios">
+        <h2>Play a whole call</h2>
+        <div class="list" id="scenarios"></div>
+      </div>
+
+      <div class="break">
+        <h3>Try to break it</h3>
+        <p>These switch on the failure, and the code that stops it.</p>
+        <div class="row">
+          <label class="hint" style="display:flex;gap:6px;align-items:center"><input type="checkbox" id="liar"> The AI makes up a price (offline stand-in for a bad LLM reply)</label>
+        </div>
+        <div class="row" style="margin-top:8px">
+          <button class="ghost" id="steal" type="button" disabled>Another caller takes the offered slot</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="owner">
+      <div class="panel">
+        <div class="panel-head"><h3>Diary</h3><span class="hint">Dan and Priya, half-day slots. New bookings in copper.</span></div>
+        <div class="diary-scroll"><table class="diary" id="diary"></table></div>
+      </div>
+      <div class="two">
+        <div class="panel">
+          <div class="panel-head"><h3>What happened</h3></div>
+          <ul class="actions" id="actions"></ul>
+        </div>
+        <div class="panel">
+          <div class="panel-head"><h3>Call summary</h3><span class="hint">What the owner gets</span></div>
+          <dl class="summary" id="summary"></dl>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <section class="proof">
+    <div class="proof-grid">
+      <div>
+        <h2>Guardrails in code</h2>
+        <table class="data guards">
+          <tr><th>Must never happen</th><th>What stops it</th></tr>
+          <tr><td>A gas smell or CO alarm goes in the diary</td><td>Checked first on every turn; safety script, gas emergency number, owner alert, call closed</td></tr>
+          <tr><td>A burst pipe waits for a callback</td><td>Stop-tap advice, then live transfer to the on-call engineer</td></tr>
+          <tr><td>The AI quotes a price you never set</td><td>Every £ amount is checked against the price list before it is spoken</td></tr>
+          <tr><td>Two callers get the same slot</td><td>The diary refuses a taken slot and the agent offers the next one</td></tr>
+          <tr><td>A job booked to a wrong number</td><td>No booking until the number has been read back and confirmed</td></tr>
+          <tr><td>A visit outside the area</td><td>Postcode district checked against the service area</td></tr>
+          <tr><td>Card numbers in call logs</td><td>Detected (Luhn check, spoken or typed), refused, removed from the transcript</td></tr>
+          <tr><td>A caller stuck in a loop</td><td>Two turns not understood, or "a real person", transfers to the office</td></tr>
+        </table>
+      </div>
+      <div>
+        <h2>Measured on scripted calls</h2>
+        <div class="xscroll"><table class="data" id="evaltable"><tr><td class="empty">Loading results…</td></tr></table></div>
+        <p class="hint" id="evalnote"></p>
+      </div>
+    </div>
+  </section>
+
+  <footer>Built by <a href="https://github.com/enxo7899">EmSoft</a>: AI receptionists, chatbots and automations for small businesses. The receptionist logic here runs in your browser with no API key. In production the same rules sit behind a voice platform (Vapi or Retell) as tool calls; see the README.</footer>
+</div>
+
+<script type="module">
+import { newCall, turn, summarize } from './src/agent.js';
+import { createCalendar, workingDays, slotKey, prettyDate } from './src/calendar.js';
+import { formatPhone } from './src/policy.js';
+
+const business = await (await fetch('./data/business.json')).json();
+const $ = (id) => document.getElementById(id);
+const esc = (s) => String(s ?? '').replace(/[&<>"]/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+
+const SCENARIOS = {
+  booking: { title: 'Book a boiler service', note: 'Spoken number, Friday is full', turns: ['hi um my boyler needs a service', "it's L S six", 'sarah jones', 'oh seven seven double oh nine hundred one two three', 'yes', 'friday morning if possible', 'no', 'yes', 'no thanks'] },
+  gas: { title: 'Gas smell mid-booking', note: 'Booking stops, safety first', turns: ['I need a boiler service', 'LS6', 'actually I can smell gas in the kitchen'] },
+  flood: { title: 'Burst pipe', note: 'Transferred to on-call', turns: ['help a pipe has burst and water is coming through the ceiling'] },
+  vulnerable: { title: 'Elderly caller, no heating', note: 'Earliest slot, owner alerted', turns: ["my nan is 89 and her heating isn't working, she's in LS8", 'Margaret Hill', '0113 496 0500', 'yes', 'yes', 'no'] },
+  card: { title: 'Reads out a card number', note: 'Refused and removed', turns: ['can I pay my bill, my card is 4539 1488 0343 6467', 'no thanks'] },
+  area: { title: 'Outside the area', note: 'Bradford postcode', turns: ['I need a blocked sink sorted in BD4'] },
+  price: { title: 'Price question', note: 'Only listed prices', turns: ['how much is a landlord gas safety certificate', 'yes please', 'LS2', 'Ahmed Khan', '07700 900222', 'no it is 07700 900223', 'yes', 'next week', 'yes', 'no'] },
+  quote: { title: 'Job with no fixed price', note: 'Callback, no guess', turns: ['how much would underfloor heating cost for an extension', 'Jo Hart', '07700 900111', 'yes', 'no'] },
+};
+
+let calendar, state, ctx, actionsLog, startedAt, timer, newKeys, lastOutcome;
+
+function reset() {
+  calendar = createCalendar(business);
+  ctx = { business, calendar };
+  state = newCall(business, { callId: 'demo-' + Math.random().toString(36).slice(2, 7) });
+  actionsLog = [];
+  newKeys = new Set();
+  startedAt = Date.now();
+  clearInterval(timer);
+  timer = setInterval(tick, 1000);
+  render();
+}
+function tick() {
+  if (state.stage === 'closed') return;
+  const s = Math.floor((Date.now() - startedAt) / 1000);
+  $('status').textContent = `On call · ${String(Math.floor(s / 60)).padStart(2, '0')}:${String(s % 60).padStart(2, '0')}`;
+}
+
+function say(text) {
+  text = text.trim();
+  if (!text) return;
+  ctx.rewrite = $('liar').checked ? (r) => r.replace(/£\d+/g, '£49').replace(/a free survey first/, 'a fixed £1,450 install') : undefined;
+  const r = turn(ctx, state, text);
+  state = r.state;
+  for (const a of r.actions) {
+    actionsLog.push(a);
+    if (a.type === 'book_job') newKeys.add(a.job.key);
+  }
+  const last = state.transcript.at(-1);
+  if (last.blocked) actionsLog.push({ type: 'guardrail', text: 'Reply named a price that is not on the price list. Replaced before the caller heard it.' });
+  render();
+  speak(r.reply);
+}
+
+function speak(text) {
+  if (!$('speak').checked || !('speechSynthesis' in window)) return;
+  speechSynthesis.cancel();
+  const u = new SpeechSynthesisUtterance(text);
+  u.lang = 'en-GB';
+  speechSynthesis.speak(u);
+}
+
+const CHIPS = {
+  null: ['My boiler needs a service', 'I can smell gas', 'How much is a boiler service?', 'Can I speak to a person?'],
+  service: ['A blocked drain', 'Boiler service', 'Leaking tap'],
+  postcode: ['LS6 2AB', 'L S eleven', 'BD4 1AA'],
+  name: ['Sarah Jones', "It's Tom"],
+  phone: ['oh seven seven double oh nine hundred one two three', '0113 496 0500', '12345'],
+  confirm_phone: ['Yes', "No, it's 07700 900124"],
+  day: ['Friday morning', 'As soon as possible', 'Next week'],
+  offer: ['Yes please', 'No, anything Monday?', 'My card number is 4539 1488 0343 6467'],
+  book_after_price: ['Yes please', 'No thanks'],
+  anything_else: ['No, that is all', 'What are your opening hours?'],
+};
+
+function renderTranscript() {
+  const t = $('transcript');
+  t.innerHTML = state.transcript.map((m) => {
+    const safety = m.who === 'agent' && /emergency|stop tap|fresh air/i.test(m.text);
+    return `<div class="msg ${m.who}${safety ? ' safety' : ''}"><span class="tag">${m.who === 'agent' ? 'Receptionist' : 'Caller'}</span>${esc(m.text)}${m.blocked ? `<span class="blocked">Guardrail: the AI wrote “${esc(m.original)}”. Price not on the list, so that sentence was replaced before the caller heard it.</span>` : ''}</div>`;
+  }).join('');
+  t.scrollTop = t.scrollHeight;
+}
+
+function renderChips() {
+  const list = state.stage === 'closed' ? [] : CHIPS[state.awaiting] || CHIPS.null;
+  $('chips').innerHTML = state.stage === 'closed'
+    ? `<span class="hint">Call ended. Start a new call or play a scenario.</span>`
+    : list.map((c) => `<button type="button" class="chip">${esc(c)}</button>`).join('');
+  for (const b of $('chips').querySelectorAll('.chip')) b.onclick = () => say(b.textContent);
+}
+
+function renderStatus() {
+  const st = $('status');
+  if (state.emergency && state.stage === 'closed') { st.className = 'status urgent'; st.textContent = state.emergency === 'flood' ? 'Transferred · urgent' : 'Emergency · ended'; }
+  else if (state.stage === 'closed') { st.className = 'status ended'; st.textContent = 'Call ended'; }
+  else { st.className = 'status live'; tick(); }
+  $('steal').disabled = !(state.awaiting === 'offer' && state.offered);
+}
+
+function renderDiary() {
+  const days = workingDays(calendar, 6);
+  let html = `<tr><th style="width:70px"></th>${days.map((d) => `<th>${prettyDate(d).replace(/ (November|December)/, '')}</th>`).join('')}</tr>`;
+  for (const e of business.engineers) {
+    for (const part of ['am', 'pm']) {
+      html += `<tr><td class="eng">${part === 'am' ? e.name : ''}<div class="hint" style="font-weight:400">${part.toUpperCase()}</div></td>`;
+      for (const d of days) {
+        const key = slotKey(d, e.id, part);
+        const entry = calendar.booked.get(key);
+        const past = d === business.today && part === 'am';
+        let cls = 'free', body = 'free';
+        if (entry && newKeys.has(key)) { cls = 'new'; body = `<b>${esc(entry.id)}</b>${esc(entry.name)} · ${esc(entry.postcode)}`; }
+        else if (entry && entry.stolen) { cls = 'taken'; body = 'just taken by another caller'; }
+        else if (entry) { cls = 'taken'; body = 'booked'; }
+        else if (past) { cls = 'past'; body = 'past'; }
+        if (state.offered && state.offered.key === key) { cls += ' offered'; body = 'offered now'; }
+        html += `<td><div class="slot ${cls}">${body}</div></td>`;
+      }
+      html += '</tr>';
+    }
+  }
+  $('diary').innerHTML = html;
+}
+
+const ACTION_TEXT = {
+  book_job: (a) => ['book', 'Booked', `${a.job.id}: ${a.job.engineer}, ${prettyDate(a.job.date)} ${a.job.part.toUpperCase()}, ${business.services[a.job.service].label}`],
+  send_sms: (a) => ['', 'Text sent', `To ${formatPhone(a.to)}: “${a.text}”`],
+  transfer_call: (a) => ['urgent', 'Transferred', `To ${a.to} (${a.number})${a.reason === 'not_understood' ? ': could not understand the caller' : ''}`],
+  notify_owner: (a) => [a.priority === 'urgent' ? 'urgent' : 'book', a.priority === 'urgent' ? 'Urgent alert' : 'Priority alert', a.text],
+  log_emergency: (a) => ['urgent', 'Emergency', a.kind === 'gas' ? 'Gas smell logged. Nothing booked.' : 'Carbon monoxide alarm logged. Nothing booked.'],
+  take_message: (a) => ['', 'Message', `${a.name}, ${formatPhone(a.phone)}: ${a.about.replace(/_/g, ' ')}`],
+  log_call: (a) => ['', 'Logged', `Outside service area (${a.postcode}). Not booked.`],
+  guardrail: (a) => ['guard', 'Guardrail', a.text],
+};
+
+function renderActions() {
+  const flags = state.flags.includes('card_details_refused') ? [{ type: 'guardrail', text: 'Card details refused and removed from the transcript.' }] : [];
+  const blockedDouble = state.blocked.filter((b) => b.rule === 'double_booking_prevented').map(() => ({ type: 'guardrail', text: 'Offered slot was taken by another caller before “yes”. Diary refused it; next slot offered.' }));
+  const list = [...actionsLog, ...blockedDouble, ...flags];
+  $('actions').innerHTML = list.length
+    ? list.map((a) => { const [cls, label, text] = ACTION_TEXT[a.type](a); return `<li><span class="atype ${cls}">${label}</span><span>${esc(text)}</span></li>`; }).join('')
+    : `<li class="empty" style="display:block">Nothing yet. Book a job, or say “I can smell gas” to see what the owner gets.</li>`;
+}
+
+function renderSummary() {
+  const s = summarize(state, business);
+  const rows = [
+    ['Outcome', s.outcome.replace(/_/g, ' ')], ['Caller', s.name], ['Phone', s.phone], ['Postcode', s.postcode],
+    ['Job', s.service], ['Booking', s.booking ? `${s.booking.id}, ${prettyDate(s.booking.date)} ${s.booking.part.toUpperCase()}, ${s.booking.engineer}` : null],
+    ['Flags', [...s.flags, ...s.guardrailsTriggered].map((f) => f.replace(/_/g, ' ')).join(', ') || null],
+  ];
+  $('summary').innerHTML = rows.map(([k, v]) => `<dt>${k}</dt><dd>${v ? esc(v) : '<span style="color:#b3aa9b">—</span>'}</dd>`).join('');
+}
+
+function render() { renderTranscript(); renderChips(); renderStatus(); renderDiary(); renderActions(); renderSummary(); }
+
+$('form').onsubmit = (e) => { e.preventDefault(); const v = $('input').value; $('input').value = ''; say(v); };
+$('hangup').onclick = reset;
+$('steal').onclick = () => {
+  if (!state.offered) return;
+  calendar.booked.set(state.offered.key, { id: 'OTHER', stolen: true });
+  actionsLog.push({ type: 'guardrail', text: 'Another call just booked the slot this caller is being offered. Now say “yes”.' });
+  render();
+};
+
+$('scenarios').innerHTML = Object.entries(SCENARIOS).map(([k, s]) => `<button type="button" data-k="${k}">${esc(s.title)}<span>${esc(s.note)}</span></button>`).join('');
+let playing = 0;
+async function play(k, fast = false) {
+  const run = ++playing;
+  reset();
+  for (const t of SCENARIOS[k].turns) {
+    if (state.stage === 'closed' || run !== playing) break;
+    if (!fast) await new Promise((r) => setTimeout(r, 650));
+    say(t);
+  }
+}
+for (const b of $('scenarios').querySelectorAll('button')) b.onclick = () => play(b.dataset.k);
+
+// Microphone: browser speech recognition when available, typed input otherwise.
+const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+if (!SR) { $('mic').disabled = true; $('mic').title = 'Speech recognition is not available in this browser; type instead.'; }
+else {
+  let rec = null;
+  $('mic').onclick = () => {
+    if (rec) { rec.stop(); return; }
+    rec = new SR();
+    rec.lang = 'en-GB';
+    rec.interimResults = false;
+    $('mic').setAttribute('aria-pressed', 'true');
+    rec.onresult = (e) => say(e.results[0][0].transcript);
+    rec.onend = () => { rec = null; $('mic').setAttribute('aria-pressed', 'false'); };
+    rec.onerror = () => {};
+    rec.start();
+  };
+}
+
+// Evaluation results (generated by `npm run evaluate`).
+try {
+  const ev = await (await fetch('./data/evaluation.json')).json();
+  const pct = (x) => `${(100 * x).toFixed(0)}%`;
+  const row = (name, label, r, cls = '') => `<tr class="${cls}"><td>${label}</td><td class="num">${r.calls}</td><td class="num">${r.callsFullyCorrect}/${r.calls} (${pct(r.callAccuracy)})</td><td class="num">${pct(r.fieldAccuracy)}</td><td class="num">${r.emergencyCaught}/${r.emergencies}</td><td class="num">${r.safetyViolations}</td></tr>`;
+  const first = ev.testFirstRun;
+  $('evaltable').innerHTML = `<tr><th>Call set</th><th>Calls</th><th>Whole call right</th><th>Details</th><th>Emergencies</th><th>Safety breaks</th></tr>`
+    + (first ? row('first', 'Unseen test calls, first run', first, 'headline') : '')
+    + row('test', 'Test calls, after fixing 2 bugs', ev.test)
+    + row('dev', 'Development calls', ev.dev)
+    + row('tune', 'Tuning calls', ev.tune);
+  $('evalnote').textContent = `Each call is a scripted caller with speech-to-text style noise (number words, “boyler”, no punctuation). The headline row is the first and only run on 30 calls the rules were never tuned on: ${first ? `${first.callsFullyCorrect}/30, 95% interval ${pct(first.callAccuracyCI[0])} to ${pct(first.callAccuracyCI[1])}` : ''}. Scripted callers do not argue back like real ones, so treat this as a regression check, not a promise.`;
+} catch { $('evaltable').innerHTML = '<tr><td class="empty">Run npm run evaluate to generate results.</td></tr>'; }
+
+reset();
+const params = new URLSearchParams(location.search);
+if (params.get('liar')) { $('liar').checked = true; }
+if (params.get('run') && SCENARIOS[params.get('run')]) await play(params.get('run'), true);
+if (params.get('script')) for (const t of params.get('script').split('|')) say(t);
+if (params.get('steal')) { $('steal').click(); }
+if (params.get('then')) for (const t of params.get('then').split('|')) say(t);
+window.__ready = true;
+</script>
+</body>
+</html>

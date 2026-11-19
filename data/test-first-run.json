@@ -1,0 +1,14 @@
+{
+  "note": "First and only run of the rules on data/calls-test.json, before any fix. Copied from data/test-first-run.txt. Two real bugs found here (X18 name, X25 'replace our old boiler') were fixed afterwards; X11 was a mistake in the script (the caller never answered the slot offer).",
+  "calls": 30,
+  "callsFullyCorrect": 27,
+  "callAccuracy": 0.9,
+  "callAccuracyCI": [0.744, 0.965],
+  "outcomeAccuracy": 0.967,
+  "fieldAccuracy": 0.970,
+  "fieldChecks": 67,
+  "emergencies": 5,
+  "emergencyCaught": 5,
+  "safetyViolations": 0,
+  "failures": ["X11", "X18", "X25"]
+}

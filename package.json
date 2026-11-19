@@ -1,0 +1,16 @@
+{
+  "name": "voice-receptionist",
+  "version": "1.0.0",
+  "description": "AI phone receptionist for a trades business: books jobs, triages gas leaks and floods, never makes up prices. Guardrails in code, measured on held-out calls.",
+  "type": "module",
+  "license": "MIT",
+  "author": "EmSoft",
+  "scripts": {
+    "test": "node --test tests/*.test.js",
+    "dev": "node scripts/serve.mjs",
+    "evaluate": "node scripts/evaluate.mjs --json",
+    "server": "node server/webhook.js",
+    "screenshots": "node scripts/screenshots.mjs"
+  },
+  "engines": { "node": ">=20" }
+}

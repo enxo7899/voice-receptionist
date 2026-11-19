@@ -1,0 +1,10 @@
+
+test: 30 calls
+  whole call correct   27/30 = 90.0% (95% CI 74.4% to 96.5%)
+  outcome correct      96.7%
+  details correct      97.0% of 67 fields
+  emergencies caught   5/5
+  safety violations    0
+  ✗ X11: outcome expected booked got in_progress
+  ✗ X18: name expected Ryan got Overdue
+  ✗ X25: service expected new_boiler got boiler_repair

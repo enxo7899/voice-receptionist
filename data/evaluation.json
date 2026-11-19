@@ -1,0 +1,2207 @@
+{
+  "tune": {
+    "calls": 20,
+    "callsFullyCorrect": 20,
+    "callAccuracy": 1,
+    "callAccuracyCI": [
+      0.8388698745050667,
+      1
+    ],
+    "outcomeAccuracy": 1,
+    "fieldAccuracy": 1,
+    "fieldChecks": 48,
+    "emergencies": 3,
+    "emergencyCaught": 3,
+    "safetyViolations": 0,
+    "failures": [],
+    "results": [
+      {
+        "id": "T01",
+        "ok": true,
+        "checks": [
+          {
+            "field": "outcome",
+            "expected": "booked",
+            "got": "booked",
+            "ok": true
+          },
+          {
+            "field": "service",
+            "expected": "boiler_service",
+            "got": "boiler_service",
+            "ok": true
+          },
+          {
+            "field": "postcode",
+            "expected": "LS6",
+            "got": "LS6",
+            "ok": true
+          },
+          {
+            "field": "name",
+            "expected": "Sarah Jones",
+            "got": "Sarah Jones",
+            "ok": true
+          },
+          {
+            "field": "phone",
+            "expected": "07700900123",
+            "got": "07700900123",
+            "ok": true
+          }
+        ],
+        "safety": []
+      },
+      {
+        "id": "T02",
+        "ok": true,
+        "checks": [
+          {
+            "field": "outcome",
+            "expected": "booked",
+            "got": "booked",
+            "ok": true
+          },
+          {
+            "field": "service",
+            "expected": "blocked_drain",
+            "got": "blocked_drain",
+            "ok": true
+          },
+          {
+            "field": "postcode",
+            "expected": "LS11",
+            "got": "LS11",
+            "ok": true
+          },
+          {
+            "field": "name",
+            "expected": "Tom Baker",
+            "got": "Tom Baker",
+            "ok": true
+          },
+          {
+            "field": "phone",
+            "expected": "07700900465",
+            "got": "07700900465",
+            "ok": true
+          }
+        ],
+        "safety": []
+      },
+      {
+        "id": "T03",
+        "ok": true,
+        "checks": [
+          {
+            "field": "outcome",
+            "expected": "gas_emergency",
+            "got": "gas_emergency",
+            "ok": true
+          }
+        ],
+        "safety": []
+      },
+      {
+        "id": "T04",
+        "ok": true,
+        "checks": [
+          {
+            "field": "outcome",
+            "expected": "flood_transfer",
+            "got": "flood_transfer",
+            "ok": true
+          }
+        ],
+        "safety": []
+      },
+      {
+        "id": "T05",
+        "ok": true,
+        "checks": [
+          {
+            "field": "outcome",
+            "expected": "callback",
+            "got": "callback",
+            "ok": true
+          },
+          {
+            "field": "name",
+            "expected": "Jo",
+            "got": "Jo",
+            "ok": true
+          },
+          {
+            "field": "phone",
+            "expected": "07700900111",
+            "got": "07700900111",
+            "ok": true
+          }
+        ],
+        "safety": []
+      },
+      {
+        "id": "T06",
+        "ok": true,
+        "checks": [
+          {
+            "field": "outcome",
+            "expected": "out_of_area",
+            "got": "out_of_area",
+            "ok": true
+          },
+          {
+            "field": "postcode",
+            "expected": "BD4",
+            "got": "BD4",
+            "ok": true
+          }
+        ],
+        "safety": []
+      },
+      {
+        "id": "T07",
+        "ok": true,
+        "checks": [
+          {
+            "field": "outcome",
+            "expected": "transfer_fallback",
+            "got": "transfer_fallback",
+            "ok": true
+          }
+        ],
+        "safety": []
+      },
+      {
+        "id": "T08",
+        "ok": true,
+        "checks": [
+          {
+            "field": "outcome",
+            "expected": "transfer",
+            "got": "transfer",
+            "ok": true
+          }
+        ],
+        "safety": []
+      },
+      {
+        "id": "T09",
+        "ok": true,
+        "checks": [
+          {
+            "field": "outcome",
+            "expected": "booked",
+            "got": "booked",
+            "ok": true
+          },
+          {
+            "field": "service",
+            "expected": "boiler_repair",
+            "got": "boiler_repair",
+            "ok": true
+          },
+          {
+            "field": "postcode",
+            "expected": "LS8",
+            "got": "LS8",
+            "ok": true
+          },
+          {
+            "field": "name",
+            "expected": "Margaret Hill",
+            "got": "Margaret Hill",
+            "ok": true
+          },
+          {
+            "field": "phone",
+            "expected": "01134960500",
+            "got": "01134960500",
+            "ok": true
+          },
+          {
+            "field": "flag",
+            "expected": "priority_vulnerable",
+            "got": "priority_vulnerable",
+            "ok": true
+          }
+        ],
+        "safety": []
+      },
+      {
+        "id": "T10",
+        "ok": true,
+        "checks": [
+          {
+            "field": "outcome",
+            "expected": "info",
+            "got": "info",
+            "ok": true
+          }
+        ],
+        "safety": []
+      },
+      {
+        "id": "T11",
+        "ok": true,
+        "checks": [
+          {
+            "field": "outcome",
+            "expected": "booked",
+            "got": "booked",
+            "ok": true
+          },
+          {
+            "field": "service",
+            "expected": "gas_safety_certificate",
+            "got": "gas_safety_certificate",
+            "ok": true
+          },
+          {
+            "field": "postcode",
+            "expected": "LS2",
+            "got": "LS2",
+            "ok": true
+          },
+          {
+            "field": "name",
+            "expected": "Ahmed Khan",
+            "got": "Ahmed Khan",
+            "ok": true
+          },
+          {
+            "field": "phone",
+            "expected": "07700900222",
+            "got": "07700900222",
+            "ok": true
+          }
+        ],
+        "safety": []
+      },
+      {
+        "id": "T12",
+        "ok": true,
+        "checks": [
+          {
+            "field": "outcome",
+            "expected": "co_emergency",
+            "got": "co_emergency",
+            "ok": true
+          }
+        ],
+        "safety": []
+      },
+      {
+        "id": "T13",
+        "ok": true,
+        "checks": [
+          {
+            "field": "outcome",
+            "expected": "cancel_message",
+            "got": "cancel_message",
+            "ok": true
+          },
+          {
+            "field": "name",
+            "expected": "Linda Shaw",
+            "got": "Linda Shaw",
+            "ok": true
+          },
+          {
+            "field": "phone",
+            "expected": "07700900333",
+            "got": "07700900333",
+            "ok": true
+          }
+        ],
+        "safety": []
+      },
+      {
+        "id": "T14",
+        "ok": true,
+        "checks": [
+          {
+            "field": "outcome",
+            "expected": "booked",
+            "got": "booked",
+            "ok": true
+          },
+          {
+            "field": "service",
+            "expected": "tap_replacement",
+            "got": "tap_replacement",
+            "ok": true
+          },
+          {
+            "field": "postcode",
+            "expected": "LS4",
+            "got": "LS4",
+            "ok": true
+          },
+          {
+            "field": "name",
+            "expected": "Kevin",
+            "got": "Kevin",
+            "ok": true
+          },
+          {
+            "field": "phone",
+            "expected": "07700900444",
+            "got": "07700900444",
+            "ok": true
+          }
+        ],
+        "safety": []
+      },
+      {
+        "id": "T15",
+        "ok": true,
+        "checks": [
+          {
+            "field": "outcome",
+            "expected": "price_given",
+            "got": "price_given",
+            "ok": true
+          },
+          {
+            "field": "service",
+            "expected": "boiler_service",
+            "got": "boiler_service",
+            "ok": true
+          }
+        ],
+        "safety": []
+      },
+      {
+        "id": "T16",
+        "ok": true,
+        "checks": [
+          {
+            "field": "outcome",
+            "expected": "booked",
+            "got": "booked",
+            "ok": true
+          },
+          {
+            "field": "service",
+            "expected": "leak_repair",
+            "got": "leak_repair",
+            "ok": true
+          },
+          {
+            "field": "postcode",
+            "expected": "LS12",
+            "got": "LS12",
+            "ok": true
+          },
+          {
+            "field": "name",
+            "expected": "Priti Patel",
+            "got": "Priti Patel",
+            "ok": true
+          },
+          {
+            "field": "phone",
+            "expected": "07700900555",
+            "got": "07700900555",
+            "ok": true
+          }
+        ],
+        "safety": []
+      },
+      {
+        "id": "T17",
+        "ok": true,
+        "checks": [
+          {
+            "field": "outcome",
+            "expected": "callback",
+            "got": "callback",
+            "ok": true
+          },
+          {
+            "field": "service",
+            "expected": "new_boiler",
+            "got": "new_boiler",
+            "ok": true
+          },
+          {
+            "field": "postcode",
+            "expected": "LS17",
+            "got": "LS17",
+            "ok": true
+          },
+          {
+            "field": "name",
+            "expected": "Gary Lineker",
+            "got": "Gary Lineker",
+            "ok": true
+          },
+          {
+            "field": "phone",
+            "expected": "07700900666",
+            "got": "07700900666",
+            "ok": true
+          }
+        ],
+        "safety": []
+      },
+      {
+        "id": "T18",
+        "ok": true,
+        "checks": [
+          {
+            "field": "outcome",
+            "expected": "booked",
+            "got": "booked",
+            "ok": true
+          },
+          {
+            "field": "service",
+            "expected": "radiator",
+            "got": "radiator",
+            "ok": true
+          },
+          {
+            "field": "postcode",
+            "expected": "LS9",
+            "got": "LS9",
+            "ok": true
+          },
+          {
+            "field": "name",
+            "expected": "Emma",
+            "got": "Emma",
+            "ok": true
+          },
+          {
+            "field": "phone",
+            "expected": "07700900777",
+            "got": "07700900777",
+            "ok": true
+          }
+        ],
+        "safety": []
+      },
+      {
+        "id": "T19",
+        "ok": true,
+        "checks": [
+          {
+            "field": "outcome",
+            "expected": "booked",
+            "got": "booked",
+            "ok": true
+          },
+          {
+            "field": "service",
+            "expected": "boiler_repair",
+            "got": "boiler_repair",
+            "ok": true
+          },
+          {
+            "field": "postcode",
+            "expected": "LS7",
+            "got": "LS7",
+            "ok": true
+          },
+          {
+            "field": "name",
+            "expected": "Dave",
+            "got": "Dave",
+            "ok": true
+          },
+          {
+            "field": "phone",
+            "expected": "07700900888",
+            "got": "07700900888",
+            "ok": true
+          },
+          {
+            "field": "flag",
+            "expected": "card_details_refused",
+            "got": "card_details_refused",
+            "ok": true
+          }
+        ],
+        "safety": []
+      },
+      {
+        "id": "T20",
+        "ok": true,
+        "checks": [
+          {
+            "field": "outcome",
+            "expected": "booked",
+            "got": "booked",
+            "ok": true
+          },
+          {
+            "field": "service",
+            "expected": "boiler_service",
+            "got": "boiler_service",
+            "ok": true
+          },
+          {
+            "field": "postcode",
+            "expected": "LS6",
+            "got": "LS6",
+            "ok": true
+          },
+          {
+            "field": "name",
+            "expected": "Anna",
+            "got": "Anna",
+            "ok": true
+          },
+          {
+            "field": "phone",
+            "expected": "07700900999",
+            "got": "07700900999",
+            "ok": true
+          }
+        ],
+        "safety": []
+      }
+    ]
+  },
+  "dev": {
+    "calls": 30,
+    "callsFullyCorrect": 29,
+    "callAccuracy": 0.9666666666666667,
+    "callAccuracyCI": [
+      0.8332924860304112,
+      0.9940915620051425
+    ],
+    "outcomeAccuracy": 0.9666666666666667,
+    "fieldAccuracy": 1,
+    "fieldChecks": 66,
+    "emergencies": 5,
+    "emergencyCaught": 5,
+    "safetyViolations": 0,
+    "failures": [
+      "H14"
+    ],
+    "results": [
+      {
+        "id": "H01",
+        "ok": true,
+        "checks": [
+          {
+            "field": "outcome",
+            "expected": "booked",
+            "got": "booked",
+            "ok": true
+          },
+          {
+            "field": "service",
+            "expected": "boiler_service",
+            "got": "boiler_service",
+            "ok": true
+          },
+          {
+            "field": "postcode",
+            "expected": "LS5",
+            "got": "LS5",
+            "ok": true
+          },
+          {
+            "field": "name",
+            "expected": "Rachel Green",
+            "got": "Rachel Green",
+            "ok": true
+          },
+          {
+            "field": "phone",
+            "expected": "07700900147",
+            "got": "07700900147",
+            "ok": true
+          }
+        ],
+        "safety": []
+      },
+      {
+        "id": "H02",
+        "ok": true,
+        "checks": [
+          {
+            "field": "outcome",
+            "expected": "gas_emergency",
+            "got": "gas_emergency",
+            "ok": true
+          }
+        ],
+        "safety": []
+      },
+      {
+        "id": "H03",
+        "ok": true,
+        "checks": [
+          {
+            "field": "outcome",
+            "expected": "flood_transfer",
+            "got": "flood_transfer",
+            "ok": true
+          }
+        ],
+        "safety": []
+      },
+      {
+        "id": "H04",
+        "ok": true,
+        "checks": [
+          {
+            "field": "outcome",
+            "expected": "price_given",
+            "got": "price_given",
+            "ok": true
+          },
+          {
+            "field": "service",
+            "expected": "blocked_drain",
+            "got": "blocked_drain",
+            "ok": true
+          }
+        ],
+        "safety": []
+      },
+      {
+        "id": "H05",
+        "ok": true,
+        "checks": [
+          {
+            "field": "outcome",
+            "expected": "booked",
+            "got": "booked",
+            "ok": true
+          },
+          {
+            "field": "service",
+            "expected": "blocked_drain",
+            "got": "blocked_drain",
+            "ok": true
+          },
+          {
+            "field": "postcode",
+            "expected": "LS10",
+            "got": "LS10",
+            "ok": true
+          },
+          {
+            "field": "name",
+            "expected": "Mark Hughes",
+            "got": "Mark Hughes",
+            "ok": true
+          },
+          {
+            "field": "phone",
+            "expected": "07700900222",
+            "got": "07700900222",
+            "ok": true
+          }
+        ],
+        "safety": []
+      },
+      {
+        "id": "H06",
+        "ok": true,
+        "checks": [
+          {
+            "field": "outcome",
+            "expected": "booked",
+            "got": "booked",
+            "ok": true
+          },
+          {
+            "field": "service",
+            "expected": "gas_safety_certificate",
+            "got": "gas_safety_certificate",
+            "ok": true
+          },
+          {
+            "field": "postcode",
+            "expected": "LS3",
+            "got": "LS3",
+            "ok": true
+          },
+          {
+            "field": "name",
+            "expected": "Sophie Turner",
+            "got": "Sophie Turner",
+            "ok": true
+          },
+          {
+            "field": "phone",
+            "expected": "07700900310",
+            "got": "07700900310",
+            "ok": true
+          }
+        ],
+        "safety": []
+      },
+      {
+        "id": "H07",
+        "ok": true,
+        "checks": [
+          {
+            "field": "outcome",
+            "expected": "booked",
+            "got": "booked",
+            "ok": true
+          },
+          {
+            "field": "service",
+            "expected": "boiler_repair",
+            "got": "boiler_repair",
+            "ok": true
+          },
+          {
+            "field": "postcode",
+            "expected": "LS14",
+            "got": "LS14",
+            "ok": true
+          },
+          {
+            "field": "name",
+            "expected": "Jamie Lee",
+            "got": "Jamie Lee",
+            "ok": true
+          },
+          {
+            "field": "phone",
+            "expected": "07700900412",
+            "got": "07700900412",
+            "ok": true
+          },
+          {
+            "field": "flag",
+            "expected": "priority_vulnerable",
+            "got": "priority_vulnerable",
+            "ok": true
+          }
+        ],
+        "safety": []
+      },
+      {
+        "id": "H08",
+        "ok": true,
+        "checks": [
+          {
+            "field": "outcome",
+            "expected": "out_of_area",
+            "got": "out_of_area",
+            "ok": true
+          },
+          {
+            "field": "service",
+            "expected": "tap_replacement",
+            "got": "tap_replacement",
+            "ok": true
+          },
+          {
+            "field": "postcode",
+            "expected": "WF1",
+            "got": "WF1",
+            "ok": true
+          }
+        ],
+        "safety": []
+      },
+      {
+        "id": "H09",
+        "ok": true,
+        "checks": [
+          {
+            "field": "outcome",
+            "expected": "transfer",
+            "got": "transfer",
+            "ok": true
+          }
+        ],
+        "safety": []
+      },
+      {
+        "id": "H10",
+        "ok": true,
+        "checks": [
+          {
+            "field": "outcome",
+            "expected": "info",
+            "got": "info",
+            "ok": true
+          }
+        ],
+        "safety": []
+      },
+      {
+        "id": "H11",
+        "ok": true,
+        "checks": [
+          {
+            "field": "outcome",
+            "expected": "co_emergency",
+            "got": "co_emergency",
+            "ok": true
+          }
+        ],
+        "safety": []
+      },
+      {
+        "id": "H12",
+        "ok": true,
+        "checks": [
+          {
+            "field": "outcome",
+            "expected": "booked",
+            "got": "booked",
+            "ok": true
+          },
+          {
+            "field": "service",
+            "expected": "boiler_repair",
+            "got": "boiler_repair",
+            "ok": true
+          },
+          {
+            "field": "postcode",
+            "expected": "LS15",
+            "got": "LS15",
+            "ok": true
+          },
+          {
+            "field": "name",
+            "expected": "Paul Smith",
+            "got": "Paul Smith",
+            "ok": true
+          },
+          {
+            "field": "phone",
+            "expected": "01134960777",
+            "got": "01134960777",
+            "ok": true
+          }
+        ],
+        "safety": []
+      },
+      {
+        "id": "H13",
+        "ok": true,
+        "checks": [
+          {
+            "field": "outcome",
+            "expected": "cancel_message",
+            "got": "cancel_message",
+            "ok": true
+          },
+          {
+            "field": "name",
+            "expected": "Helen",
+            "got": "Helen",
+            "ok": true
+          },
+          {
+            "field": "phone",
+            "expected": "07700900515",
+            "got": "07700900515",
+            "ok": true
+          }
+        ],
+        "safety": []
+      },
+      {
+        "id": "H14",
+        "ok": false,
+        "checks": [
+          {
+            "field": "outcome",
+            "expected": "callback",
+            "got": "price_given",
+            "ok": false
+          },
+          {
+            "field": "name",
+            "expected": "Chris Evans",
+            "got": "Chris Evans",
+            "ok": true
+          },
+          {
+            "field": "phone",
+            "expected": "07700900616",
+            "got": "07700900616",
+            "ok": true
+          }
+        ],
+        "safety": []
+      },
+      {
+        "id": "H15",
+        "ok": true,
+        "checks": [
+          {
+            "field": "outcome",
+            "expected": "flood_transfer",
+            "got": "flood_transfer",
+            "ok": true
+          }
+        ],
+        "safety": []
+      },
+      {
+        "id": "H16",
+        "ok": true,
+        "checks": [
+          {
+            "field": "outcome",
+            "expected": "booked",
+            "got": "booked",
+            "ok": true
+          },
+          {
+            "field": "service",
+            "expected": "radiator",
+            "got": "radiator",
+            "ok": true
+          },
+          {
+            "field": "postcode",
+            "expected": "LS16",
+            "got": "LS16",
+            "ok": true
+          },
+          {
+            "field": "name",
+            "expected": "Olivia",
+            "got": "Olivia",
+            "ok": true
+          },
+          {
+            "field": "phone",
+            "expected": "07700900717",
+            "got": "07700900717",
+            "ok": true
+          }
+        ],
+        "safety": []
+      },
+      {
+        "id": "H17",
+        "ok": true,
+        "checks": [
+          {
+            "field": "outcome",
+            "expected": "info",
+            "got": "info",
+            "ok": true
+          },
+          {
+            "field": "flag",
+            "expected": "card_details_refused",
+            "got": "card_details_refused",
+            "ok": true
+          }
+        ],
+        "safety": []
+      },
+      {
+        "id": "H18",
+        "ok": true,
+        "checks": [
+          {
+            "field": "outcome",
+            "expected": "transfer_fallback",
+            "got": "transfer_fallback",
+            "ok": true
+          }
+        ],
+        "safety": []
+      },
+      {
+        "id": "H19",
+        "ok": true,
+        "checks": [
+          {
+            "field": "outcome",
+            "expected": "booked",
+            "got": "booked",
+            "ok": true
+          },
+          {
+            "field": "service",
+            "expected": "boiler_service",
+            "got": "boiler_service",
+            "ok": true
+          },
+          {
+            "field": "postcode",
+            "expected": "LS6",
+            "got": "LS6",
+            "ok": true
+          },
+          {
+            "field": "name",
+            "expected": "Tom",
+            "got": "Tom",
+            "ok": true
+          },
+          {
+            "field": "phone",
+            "expected": "07700900881",
+            "got": "07700900881",
+            "ok": true
+          }
+        ],
+        "safety": []
+      },
+      {
+        "id": "H20",
+        "ok": true,
+        "checks": [
+          {
+            "field": "outcome",
+            "expected": "booked",
+            "got": "booked",
+            "ok": true
+          },
+          {
+            "field": "service",
+            "expected": "blocked_drain",
+            "got": "blocked_drain",
+            "ok": true
+          },
+          {
+            "field": "postcode",
+            "expected": "LS1",
+            "got": "LS1",
+            "ok": true
+          },
+          {
+            "field": "name",
+            "expected": "Grace O'neil",
+            "got": "Grace O'Neil",
+            "ok": true
+          },
+          {
+            "field": "phone",
+            "expected": "07700900919",
+            "got": "07700900919",
+            "ok": true
+          }
+        ],
+        "safety": []
+      },
+      {
+        "id": "H21",
+        "ok": true,
+        "checks": [
+          {
+            "field": "outcome",
+            "expected": "booked",
+            "got": "booked",
+            "ok": true
+          },
+          {
+            "field": "service",
+            "expected": "boiler_service",
+            "got": "boiler_service",
+            "ok": true
+          },
+          {
+            "field": "postcode",
+            "expected": "LS13",
+            "got": "LS13",
+            "ok": true
+          },
+          {
+            "field": "name",
+            "expected": "Ben Carter",
+            "got": "Ben Carter",
+            "ok": true
+          },
+          {
+            "field": "phone",
+            "expected": "07700900121",
+            "got": "07700900121",
+            "ok": true
+          }
+        ],
+        "safety": []
+      },
+      {
+        "id": "H22",
+        "ok": true,
+        "checks": [
+          {
+            "field": "outcome",
+            "expected": "booked",
+            "got": "booked",
+            "ok": true
+          },
+          {
+            "field": "service",
+            "expected": "new_boiler",
+            "got": "new_boiler",
+            "ok": true
+          },
+          {
+            "field": "postcode",
+            "expected": "LS8",
+            "got": "LS8",
+            "ok": true
+          },
+          {
+            "field": "name",
+            "expected": "Nadia",
+            "got": "Nadia",
+            "ok": true
+          },
+          {
+            "field": "phone",
+            "expected": "07700900232",
+            "got": "07700900232",
+            "ok": true
+          }
+        ],
+        "safety": []
+      },
+      {
+        "id": "H23",
+        "ok": true,
+        "checks": [
+          {
+            "field": "outcome",
+            "expected": "out_of_area",
+            "got": "out_of_area",
+            "ok": true
+          },
+          {
+            "field": "service",
+            "expected": "leak_repair",
+            "got": "leak_repair",
+            "ok": true
+          },
+          {
+            "field": "postcode",
+            "expected": "HG1",
+            "got": "HG1",
+            "ok": true
+          }
+        ],
+        "safety": []
+      },
+      {
+        "id": "H24",
+        "ok": true,
+        "checks": [
+          {
+            "field": "outcome",
+            "expected": "booked",
+            "got": "booked",
+            "ok": true
+          },
+          {
+            "field": "service",
+            "expected": "boiler_repair",
+            "got": "boiler_repair",
+            "ok": true
+          },
+          {
+            "field": "postcode",
+            "expected": "LS2",
+            "got": "LS2",
+            "ok": true
+          },
+          {
+            "field": "name",
+            "expected": "Sam Wilson",
+            "got": "Sam Wilson",
+            "ok": true
+          },
+          {
+            "field": "phone",
+            "expected": "07700900343",
+            "got": "07700900343",
+            "ok": true
+          }
+        ],
+        "safety": []
+      },
+      {
+        "id": "H25",
+        "ok": true,
+        "checks": [
+          {
+            "field": "outcome",
+            "expected": "info",
+            "got": "info",
+            "ok": true
+          },
+          {
+            "field": "flag",
+            "expected": "card_details_refused",
+            "got": "card_details_refused",
+            "ok": true
+          }
+        ],
+        "safety": []
+      },
+      {
+        "id": "H26",
+        "ok": true,
+        "checks": [
+          {
+            "field": "outcome",
+            "expected": "transfer",
+            "got": "transfer",
+            "ok": true
+          }
+        ],
+        "safety": []
+      },
+      {
+        "id": "H27",
+        "ok": true,
+        "checks": [
+          {
+            "field": "outcome",
+            "expected": "callback",
+            "got": "callback",
+            "ok": true
+          },
+          {
+            "field": "service",
+            "expected": "tap_replacement",
+            "got": "tap_replacement",
+            "ok": true
+          },
+          {
+            "field": "postcode",
+            "expected": "LS7",
+            "got": "LS7",
+            "ok": true
+          },
+          {
+            "field": "name",
+            "expected": "Karen",
+            "got": "Karen",
+            "ok": true
+          },
+          {
+            "field": "phone",
+            "expected": "07700900454",
+            "got": "07700900454",
+            "ok": true
+          }
+        ],
+        "safety": []
+      },
+      {
+        "id": "H28",
+        "ok": true,
+        "checks": [
+          {
+            "field": "outcome",
+            "expected": "gas_emergency",
+            "got": "gas_emergency",
+            "ok": true
+          }
+        ],
+        "safety": []
+      },
+      {
+        "id": "H29",
+        "ok": true,
+        "checks": [
+          {
+            "field": "outcome",
+            "expected": "price_given",
+            "got": "price_given",
+            "ok": true
+          },
+          {
+            "field": "service",
+            "expected": "leak_repair",
+            "got": "leak_repair",
+            "ok": true
+          }
+        ],
+        "safety": []
+      },
+      {
+        "id": "H30",
+        "ok": true,
+        "checks": [
+          {
+            "field": "outcome",
+            "expected": "booked",
+            "got": "booked",
+            "ok": true
+          },
+          {
+            "field": "service",
+            "expected": "boiler_repair",
+            "got": "boiler_repair",
+            "ok": true
+          },
+          {
+            "field": "postcode",
+            "expected": "LS17",
+            "got": "LS17",
+            "ok": true
+          },
+          {
+            "field": "name",
+            "expected": "Ian Brown",
+            "got": "Ian Brown",
+            "ok": true
+          },
+          {
+            "field": "phone",
+            "expected": "01134960888",
+            "got": "01134960888",
+            "ok": true
+          },
+          {
+            "field": "flag",
+            "expected": "priority_vulnerable",
+            "got": "priority_vulnerable",
+            "ok": true
+          }
+        ],
+        "safety": []
+      }
+    ]
+  },
+  "test": {
+    "calls": 30,
+    "callsFullyCorrect": 29,
+    "callAccuracy": 0.9666666666666667,
+    "callAccuracyCI": [
+      0.8332924860304112,
+      0.9940915620051425
+    ],
+    "outcomeAccuracy": 0.9666666666666667,
+    "fieldAccuracy": 1,
+    "fieldChecks": 67,
+    "emergencies": 5,
+    "emergencyCaught": 5,
+    "safetyViolations": 0,
+    "failures": [
+      "X11"
+    ],
+    "results": [
+      {
+        "id": "X01",
+        "ok": true,
+        "checks": [
+          {
+            "field": "outcome",
+            "expected": "booked",
+            "got": "booked",
+            "ok": true
+          },
+          {
+            "field": "service",
+            "expected": "boiler_service",
+            "got": "boiler_service",
+            "ok": true
+          },
+          {
+            "field": "postcode",
+            "expected": "LS9",
+            "got": "LS9",
+            "ok": true
+          },
+          {
+            "field": "name",
+            "expected": "Daniel Moore",
+            "got": "Daniel Moore",
+            "ok": true
+          },
+          {
+            "field": "phone",
+            "expected": "07700900330",
+            "got": "07700900330",
+            "ok": true
+          }
+        ],
+        "safety": []
+      },
+      {
+        "id": "X02",
+        "ok": true,
+        "checks": [
+          {
+            "field": "outcome",
+            "expected": "gas_emergency",
+            "got": "gas_emergency",
+            "ok": true
+          }
+        ],
+        "safety": []
+      },
+      {
+        "id": "X03",
+        "ok": true,
+        "checks": [
+          {
+            "field": "outcome",
+            "expected": "flood_transfer",
+            "got": "flood_transfer",
+            "ok": true
+          }
+        ],
+        "safety": []
+      },
+      {
+        "id": "X04",
+        "ok": true,
+        "checks": [
+          {
+            "field": "outcome",
+            "expected": "booked",
+            "got": "booked",
+            "ok": true
+          },
+          {
+            "field": "service",
+            "expected": "blocked_drain",
+            "got": "blocked_drain",
+            "ok": true
+          },
+          {
+            "field": "postcode",
+            "expected": "LS12",
+            "got": "LS12",
+            "ok": true
+          },
+          {
+            "field": "name",
+            "expected": "Fatima",
+            "got": "Fatima",
+            "ok": true
+          },
+          {
+            "field": "phone",
+            "expected": "07700900404",
+            "got": "07700900404",
+            "ok": true
+          }
+        ],
+        "safety": []
+      },
+      {
+        "id": "X05",
+        "ok": true,
+        "checks": [
+          {
+            "field": "outcome",
+            "expected": "booked",
+            "got": "booked",
+            "ok": true
+          },
+          {
+            "field": "service",
+            "expected": "gas_safety_certificate",
+            "got": "gas_safety_certificate",
+            "ok": true
+          },
+          {
+            "field": "postcode",
+            "expected": "LS6",
+            "got": "LS6",
+            "ok": true
+          },
+          {
+            "field": "name",
+            "expected": "Hannah Price",
+            "got": "Hannah Price",
+            "ok": true
+          },
+          {
+            "field": "phone",
+            "expected": "07700900505",
+            "got": "07700900505",
+            "ok": true
+          }
+        ],
+        "safety": []
+      },
+      {
+        "id": "X06",
+        "ok": true,
+        "checks": [
+          {
+            "field": "outcome",
+            "expected": "booked",
+            "got": "booked",
+            "ok": true
+          },
+          {
+            "field": "service",
+            "expected": "radiator",
+            "got": "radiator",
+            "ok": true
+          },
+          {
+            "field": "postcode",
+            "expected": "LS4",
+            "got": "LS4",
+            "ok": true
+          },
+          {
+            "field": "name",
+            "expected": "Mo",
+            "got": "Mo",
+            "ok": true
+          },
+          {
+            "field": "phone",
+            "expected": "07700900660",
+            "got": "07700900660",
+            "ok": true
+          }
+        ],
+        "safety": []
+      },
+      {
+        "id": "X07",
+        "ok": true,
+        "checks": [
+          {
+            "field": "outcome",
+            "expected": "out_of_area",
+            "got": "out_of_area",
+            "ok": true
+          },
+          {
+            "field": "postcode",
+            "expected": "YO1",
+            "got": "YO1",
+            "ok": true
+          }
+        ],
+        "safety": []
+      },
+      {
+        "id": "X08",
+        "ok": true,
+        "checks": [
+          {
+            "field": "outcome",
+            "expected": "transfer",
+            "got": "transfer",
+            "ok": true
+          }
+        ],
+        "safety": []
+      },
+      {
+        "id": "X09",
+        "ok": true,
+        "checks": [
+          {
+            "field": "outcome",
+            "expected": "info",
+            "got": "info",
+            "ok": true
+          }
+        ],
+        "safety": []
+      },
+      {
+        "id": "X10",
+        "ok": true,
+        "checks": [
+          {
+            "field": "outcome",
+            "expected": "co_emergency",
+            "got": "co_emergency",
+            "ok": true
+          }
+        ],
+        "safety": []
+      },
+      {
+        "id": "X11",
+        "ok": false,
+        "checks": [
+          {
+            "field": "outcome",
+            "expected": "booked",
+            "got": "in_progress",
+            "ok": false
+          },
+          {
+            "field": "service",
+            "expected": "boiler_repair",
+            "got": "boiler_repair",
+            "ok": true
+          },
+          {
+            "field": "postcode",
+            "expected": "LS16",
+            "got": "LS16",
+            "ok": true
+          },
+          {
+            "field": "name",
+            "expected": "Robert King",
+            "got": "Robert King",
+            "ok": true
+          },
+          {
+            "field": "phone",
+            "expected": "01134960222",
+            "got": "01134960222",
+            "ok": true
+          },
+          {
+            "field": "flag",
+            "expected": "priority_vulnerable",
+            "got": "priority_vulnerable",
+            "ok": true
+          }
+        ],
+        "safety": []
+      },
+      {
+        "id": "X12",
+        "ok": true,
+        "checks": [
+          {
+            "field": "outcome",
+            "expected": "cancel_message",
+            "got": "cancel_message",
+            "ok": true
+          },
+          {
+            "field": "name",
+            "expected": "Lucy Ward",
+            "got": "Lucy Ward",
+            "ok": true
+          },
+          {
+            "field": "phone",
+            "expected": "07700900707",
+            "got": "07700900707",
+            "ok": true
+          }
+        ],
+        "safety": []
+      },
+      {
+        "id": "X13",
+        "ok": true,
+        "checks": [
+          {
+            "field": "outcome",
+            "expected": "callback",
+            "got": "callback",
+            "ok": true
+          },
+          {
+            "field": "name",
+            "expected": "Pete",
+            "got": "Pete",
+            "ok": true
+          },
+          {
+            "field": "phone",
+            "expected": "07700900808",
+            "got": "07700900808",
+            "ok": true
+          }
+        ],
+        "safety": []
+      },
+      {
+        "id": "X14",
+        "ok": true,
+        "checks": [
+          {
+            "field": "outcome",
+            "expected": "transfer_fallback",
+            "got": "transfer_fallback",
+            "ok": true
+          }
+        ],
+        "safety": []
+      },
+      {
+        "id": "X15",
+        "ok": true,
+        "checks": [
+          {
+            "field": "outcome",
+            "expected": "info",
+            "got": "info",
+            "ok": true
+          },
+          {
+            "field": "flag",
+            "expected": "card_details_refused",
+            "got": "card_details_refused",
+            "ok": true
+          }
+        ],
+        "safety": []
+      },
+      {
+        "id": "X16",
+        "ok": true,
+        "checks": [
+          {
+            "field": "outcome",
+            "expected": "booked",
+            "got": "booked",
+            "ok": true
+          },
+          {
+            "field": "service",
+            "expected": "leak_repair",
+            "got": "leak_repair",
+            "ok": true
+          },
+          {
+            "field": "postcode",
+            "expected": "LS10",
+            "got": "LS10",
+            "ok": true
+          },
+          {
+            "field": "name",
+            "expected": "Aisha Begum",
+            "got": "Aisha Begum",
+            "ok": true
+          },
+          {
+            "field": "phone",
+            "expected": "07700900919",
+            "got": "07700900919",
+            "ok": true
+          }
+        ],
+        "safety": []
+      },
+      {
+        "id": "X17",
+        "ok": true,
+        "checks": [
+          {
+            "field": "outcome",
+            "expected": "info",
+            "got": "info",
+            "ok": true
+          }
+        ],
+        "safety": []
+      },
+      {
+        "id": "X18",
+        "ok": true,
+        "checks": [
+          {
+            "field": "outcome",
+            "expected": "booked",
+            "got": "booked",
+            "ok": true
+          },
+          {
+            "field": "service",
+            "expected": "boiler_service",
+            "got": "boiler_service",
+            "ok": true
+          },
+          {
+            "field": "postcode",
+            "expected": "LS7",
+            "got": "LS7",
+            "ok": true
+          },
+          {
+            "field": "name",
+            "expected": "Ryan",
+            "got": "Ryan",
+            "ok": true
+          },
+          {
+            "field": "phone",
+            "expected": "07700900171",
+            "got": "07700900171",
+            "ok": true
+          }
+        ],
+        "safety": []
+      },
+      {
+        "id": "X19",
+        "ok": true,
+        "checks": [
+          {
+            "field": "outcome",
+            "expected": "gas_emergency",
+            "got": "gas_emergency",
+            "ok": true
+          }
+        ],
+        "safety": []
+      },
+      {
+        "id": "X20",
+        "ok": true,
+        "checks": [
+          {
+            "field": "outcome",
+            "expected": "flood_transfer",
+            "got": "flood_transfer",
+            "ok": true
+          }
+        ],
+        "safety": []
+      },
+      {
+        "id": "X21",
+        "ok": true,
+        "checks": [
+          {
+            "field": "outcome",
+            "expected": "booked",
+            "got": "booked",
+            "ok": true
+          },
+          {
+            "field": "service",
+            "expected": "boiler_service",
+            "got": "boiler_service",
+            "ok": true
+          },
+          {
+            "field": "postcode",
+            "expected": "LS15",
+            "got": "LS15",
+            "ok": true
+          },
+          {
+            "field": "name",
+            "expected": "Claire",
+            "got": "Claire",
+            "ok": true
+          },
+          {
+            "field": "phone",
+            "expected": "07700900515",
+            "got": "07700900515",
+            "ok": true
+          }
+        ],
+        "safety": []
+      },
+      {
+        "id": "X22",
+        "ok": true,
+        "checks": [
+          {
+            "field": "outcome",
+            "expected": "out_of_area",
+            "got": "out_of_area",
+            "ok": true
+          },
+          {
+            "field": "service",
+            "expected": "blocked_drain",
+            "got": "blocked_drain",
+            "ok": true
+          },
+          {
+            "field": "postcode",
+            "expected": "S10",
+            "got": "S10",
+            "ok": true
+          }
+        ],
+        "safety": []
+      },
+      {
+        "id": "X23",
+        "ok": true,
+        "checks": [
+          {
+            "field": "outcome",
+            "expected": "transfer",
+            "got": "transfer",
+            "ok": true
+          }
+        ],
+        "safety": []
+      },
+      {
+        "id": "X24",
+        "ok": true,
+        "checks": [
+          {
+            "field": "outcome",
+            "expected": "price_given",
+            "got": "price_given",
+            "ok": true
+          },
+          {
+            "field": "service",
+            "expected": "boiler_service",
+            "got": "boiler_service",
+            "ok": true
+          }
+        ],
+        "safety": []
+      },
+      {
+        "id": "X25",
+        "ok": true,
+        "checks": [
+          {
+            "field": "outcome",
+            "expected": "booked",
+            "got": "booked",
+            "ok": true
+          },
+          {
+            "field": "service",
+            "expected": "new_boiler",
+            "got": "new_boiler",
+            "ok": true
+          },
+          {
+            "field": "postcode",
+            "expected": "LS8",
+            "got": "LS8",
+            "ok": true
+          },
+          {
+            "field": "name",
+            "expected": "Imran",
+            "got": "Imran",
+            "ok": true
+          },
+          {
+            "field": "phone",
+            "expected": "07700900252",
+            "got": "07700900252",
+            "ok": true
+          }
+        ],
+        "safety": []
+      },
+      {
+        "id": "X26",
+        "ok": true,
+        "checks": [
+          {
+            "field": "outcome",
+            "expected": "booked",
+            "got": "booked",
+            "ok": true
+          },
+          {
+            "field": "service",
+            "expected": "boiler_repair",
+            "got": "boiler_repair",
+            "ok": true
+          },
+          {
+            "field": "postcode",
+            "expected": "LS1",
+            "got": "LS1",
+            "ok": true
+          },
+          {
+            "field": "name",
+            "expected": "Beth",
+            "got": "Beth",
+            "ok": true
+          },
+          {
+            "field": "phone",
+            "expected": "07700900626",
+            "got": "07700900626",
+            "ok": true
+          }
+        ],
+        "safety": []
+      },
+      {
+        "id": "X27",
+        "ok": true,
+        "checks": [
+          {
+            "field": "outcome",
+            "expected": "callback",
+            "got": "callback",
+            "ok": true
+          },
+          {
+            "field": "service",
+            "expected": "tap_replacement",
+            "got": "tap_replacement",
+            "ok": true
+          },
+          {
+            "field": "postcode",
+            "expected": "LS13",
+            "got": "LS13",
+            "ok": true
+          },
+          {
+            "field": "name",
+            "expected": "George",
+            "got": "George",
+            "ok": true
+          },
+          {
+            "field": "phone",
+            "expected": "07700900727",
+            "got": "07700900727",
+            "ok": true
+          }
+        ],
+        "safety": []
+      },
+      {
+        "id": "X28",
+        "ok": true,
+        "checks": [
+          {
+            "field": "outcome",
+            "expected": "booked",
+            "got": "booked",
+            "ok": true
+          },
+          {
+            "field": "service",
+            "expected": "boiler_repair",
+            "got": "boiler_repair",
+            "ok": true
+          },
+          {
+            "field": "postcode",
+            "expected": "LS5",
+            "got": "LS5",
+            "ok": true
+          },
+          {
+            "field": "name",
+            "expected": "Zoe Adams",
+            "got": "Zoe Adams",
+            "ok": true
+          },
+          {
+            "field": "phone",
+            "expected": "07700900828",
+            "got": "07700900828",
+            "ok": true
+          }
+        ],
+        "safety": []
+      },
+      {
+        "id": "X29",
+        "ok": true,
+        "checks": [
+          {
+            "field": "outcome",
+            "expected": "booked",
+            "got": "booked",
+            "ok": true
+          },
+          {
+            "field": "service",
+            "expected": "boiler_repair",
+            "got": "boiler_repair",
+            "ok": true
+          },
+          {
+            "field": "postcode",
+            "expected": "LS3",
+            "got": "LS3",
+            "ok": true
+          },
+          {
+            "field": "name",
+            "expected": "Neil",
+            "got": "Neil",
+            "ok": true
+          },
+          {
+            "field": "phone",
+            "expected": "07700900929",
+            "got": "07700900929",
+            "ok": true
+          },
+          {
+            "field": "flag",
+            "expected": "priority_vulnerable",
+            "got": "priority_vulnerable",
+            "ok": true
+          }
+        ],
+        "safety": []
+      },
+      {
+        "id": "X30",
+        "ok": true,
+        "checks": [
+          {
+            "field": "outcome",
+            "expected": "booked",
+            "got": "booked",
+            "ok": true
+          },
+          {
+            "field": "service",
+            "expected": "bathroom",
+            "got": "bathroom",
+            "ok": true
+          },
+          {
+            "field": "postcode",
+            "expected": "LS2",
+            "got": "LS2",
+            "ok": true
+          },
+          {
+            "field": "name",
+            "expected": "Kate",
+            "got": "Kate",
+            "ok": true
+          },
+          {
+            "field": "phone",
+            "expected": "07700900030",
+            "got": "07700900030",
+            "ok": true
+          }
+        ],
+        "safety": []
+      }
+    ]
+  },
+  "testFirstRun": {
+    "note": "First and only run of the rules on data/calls-test.json, before any fix. Copied from data/test-first-run.txt. Two real bugs found here (X18 name, X25 'replace our old boiler') were fixed afterwards; X11 was a mistake in the script (the caller never answered the slot offer).",
+    "calls": 30,
+    "callsFullyCorrect": 27,
+    "callAccuracy": 0.9,
+    "callAccuracyCI": [
+      0.744,
+      0.965
+    ],
+    "outcomeAccuracy": 0.967,
+    "fieldAccuracy": 0.97,
+    "fieldChecks": 67,
+    "emergencies": 5,
+    "emergencyCaught": 5,
+    "safetyViolations": 0,
+    "failures": [
+      "X11",
+      "X18",
+      "X25"
+    ]
+  }
+}

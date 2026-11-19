@@ -1,0 +1,40 @@
+{
+  "name": "Brightwater Plumbing & Heating",
+  "fictional": true,
+  "city": "Leeds",
+  "phone": "0113 496 0123",
+  "today": "2026-11-19",
+  "nowTime": "10:15",
+  "hours": {
+    "office": "Monday to Friday, 8am to 6pm",
+    "emergency": "24 hours, 7 days a week for burst pipes and flooding"
+  },
+  "serviceArea": ["LS1","LS2","LS3","LS4","LS5","LS6","LS7","LS8","LS9","LS10","LS11","LS12","LS13","LS14","LS15","LS16","LS17"],
+  "engineers": [
+    { "id": "dan", "name": "Dan", "gasSafe": true },
+    { "id": "priya", "name": "Priya", "gasSafe": true }
+  ],
+  "onCall": { "name": "Priya", "number": "07700 900461" },
+  "gasEmergencyNumber": "0800 111 999",
+  "services": {
+    "boiler_service":         { "label": "Boiler service", "price": 85, "priceText": "£85 fixed price" },
+    "gas_safety_certificate": { "label": "Landlord gas safety certificate", "price": 70, "priceText": "£70 fixed price, including the certificate" },
+    "blocked_drain":          { "label": "Blocked drain, sink or toilet", "price": 95, "priceText": "£95 fixed price for most blockages" },
+    "tap_replacement":        { "label": "Tap replacement", "price": 75, "priceText": "£75 labour, plus the tap if we supply it" },
+    "boiler_repair":          { "label": "Boiler or heating fault", "price": 65, "priceText": "£65 call-out, which covers the first 30 minutes; the engineer quotes before any further work" },
+    "leak_repair":            { "label": "Leak repair", "price": 65, "priceText": "£65 call-out, which covers the first 30 minutes; the engineer quotes before any further work" },
+    "radiator":               { "label": "Radiator fault", "price": 65, "priceText": "£65 call-out, which covers the first 30 minutes; the engineer quotes before any further work" },
+    "new_boiler":             { "label": "New boiler (free survey)", "price": null, "priceText": "a free survey first; the engineer gives a written quote after seeing the job" },
+    "bathroom":               { "label": "Bathroom fitting (free survey)", "price": null, "priceText": "a free survey first; the engineer gives a written quote after seeing the job" }
+  },
+  "otherPrices": [
+    { "label": "Out-of-hours emergency call-out", "price": 120 }
+  ],
+  "slots": { "am": "8am to 12pm", "pm": "12pm to 5pm" },
+  "booked": [
+    "2026-11-19:dan:pm", "2026-11-19:priya:pm",
+    "2026-11-20:dan:am", "2026-11-20:priya:am", "2026-11-20:dan:pm",
+    "2026-11-23:dan:am",
+    "2026-11-24:priya:pm"
+  ]
+}

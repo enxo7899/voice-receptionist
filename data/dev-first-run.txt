@@ -1,0 +1,13 @@
+
+heldout: 30 calls
+  whole call correct   24/30 = 80.0% (95% CI 62.7% to 90.5%)
+  outcome correct      86.7%
+  details correct      92.4% of 66 fields
+  emergencies caught   4/5
+  safety violations    0
+  ✗ H01: service expected boiler_service got boiler_repair
+  ✗ H06: outcome expected booked got transfer_fallback; service expected gas_safety_certificate got null; name expected Sophie Turner got null
+  ✗ H14: outcome expected callback got transfer_fallback; name expected Chris Evans got null
+  ✗ H15: outcome expected flood_transfer got in_progress
+  ✗ H21: service expected boiler_service got boiler_repair
+  ✗ H29: outcome expected price_given got transfer_fallback
